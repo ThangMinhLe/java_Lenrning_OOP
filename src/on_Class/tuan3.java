@@ -170,4 +170,15 @@ public static void maxFind(int arr []) {
     
 }
 
+// how to write a function to input array
+// public static void inputArray(int[] arr) {
+//     Scanner sc = new Scanner(System.in);
+//     System.out.print("Nhap gia tri: ");
+//     int value = sc.nextInt();
+//     for (int i = 0; i < arr.length; i++) {
+//         if (arr[i] == value) {
+//             System.out.println(i + " ");
+//         }
+//     }
+
 }
