@@ -7,10 +7,18 @@ public class Vidu1 {
 
             public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
+            double p;
+            p =(float)3.14;
             int r = input();
             System.out.println("Gia tri chu vi cua hinh tron la: " + chuvi(r));
             System.out.println("Gia tri dien tich cua hinh tron la: " + dientich(r));
             }
+
+            // public static int testint (int r) {
+            //     float v;
+            //     v = r*2;
+                
+            // }
 
             public static float chuvi(int r) {
                 float v;
