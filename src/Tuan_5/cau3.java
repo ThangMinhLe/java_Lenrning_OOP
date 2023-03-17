@@ -23,9 +23,9 @@ public class cau3 {
            
 
             Scanner sc = new Scanner(System.in);
-            System.out.print("Nhập tên sv: ");
+            System.out.print("Nhap ten sv: ");
             this.name = sc.nextLine();
-            System.out.print("Nhập số ma so sinh vien : ");
+            System.out.print("Nhap ma so sinh vien : ");
             this.maSo = sc.nextLine();
             System.out.print("Nhap Diem LT: ");
             this.diemLT = sc.nextDouble();
@@ -41,7 +41,9 @@ public class cau3 {
         System.out.println("Name: " + name);
         System.out.println("Diem TH: " + diemTH);
         System.out.println("Diem LT: " + diemLT);
-        System.out.println("Dien TB cua sinh vien la: " + getAVG());
+        System.out.println("Diem TB cua sinh vien la: " + getAVG());
+        System.out.println("");
+
     }
 
 
@@ -49,7 +51,7 @@ public class cau3 {
         return name;
     }
 
-    public int getSo() {
+    public String getSo() {
         return maSo;
     }
     
@@ -71,10 +73,15 @@ public class cau3 {
     }
 
     public static void main(String[] args) {
-        cau3 sv1 = new cau3();
-        sv1.creat();  
-        sv1.show();      
+        // cau3 sv1 = new cau3();
+        // sv1.creat();  
+        // sv1.show();      
 
+        // cau3 sv1[] = new cau3[2];
+        // sv1[0] = new cau3();
+        // sv1[0].creat();
+        // sv1[0].show();
+        
     }
 
 }
