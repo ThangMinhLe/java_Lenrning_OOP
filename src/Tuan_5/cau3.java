@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class cau3 {
     private String name;
-    private String maSo;
+    private Long maSo;
     private double diemLT;
     private double diemTH;
 
@@ -12,7 +12,7 @@ public class cau3 {
 
     }
 
-    public cau3(String name, String so, double TH, double LT) {
+    public cau3(String name, Long so, double TH, double LT) {
         this.name = name;
         this.maSo = so;
         this.diemLT = LT;
@@ -26,7 +26,7 @@ public class cau3 {
             System.out.print("Nhap ten sv: ");
             this.name = sc.nextLine();
             System.out.print("Nhap ma so sinh vien : ");
-            this.maSo = sc.nextLine();
+            this.maSo = sc.nextLong();
             System.out.print("Nhap Diem LT: ");
             this.diemLT = sc.nextDouble();
             System.out.print("Nhap Diem TH: ");
@@ -36,22 +36,22 @@ public class cau3 {
 
     }
 
-    public void show() {
-        System.out.println("ID: " + maSo);
-        System.out.println("Name: " + name);
-        System.out.println("Diem TH: " + diemTH);
-        System.out.println("Diem LT: " + diemLT);
-        System.out.println("Diem TB cua sinh vien la: " + getAVG());
-        System.out.println("");
+            public void show() {
+                System.out.println("ID: " + maSo);
+                System.out.println("Name: " + name);
+                System.out.println("Diem TH: " + diemTH);
+                System.out.println("Diem LT: " + diemLT);
+                System.out.println("Diem TB cua sinh vien la: " + getAVG());
+                System.out.println("");
 
-    }
+            }
 
 
     public String getName() {
         return name;
     }
 
-    public String getSo() {
+    public Long getSo() {
         return maSo;
     }
     
