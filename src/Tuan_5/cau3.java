@@ -27,11 +27,24 @@ public class cau3 {
             this.name = sc.nextLine();
             System.out.print("Nhap ma so sinh vien : ");
             this.maSo = sc.nextLong();
+            
+            //Nhap Diem LT:
+            for (;;) {
             System.out.print("Nhap Diem LT: ");
             this.diemLT = sc.nextDouble();
+            if (diemLT >= 0 && diemLT <= 10) {
+                break;
+            }
+            }
+
+            //Nhap Diem TH:
+             for (;;) {
             System.out.print("Nhap Diem TH: ");
             this.diemTH = sc.nextDouble();
-
+            if (diemTH >= 0 && diemTH <= 10) {
+                break;
+            }
+        }
             
 
     }
