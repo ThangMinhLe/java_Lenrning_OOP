@@ -51,13 +51,16 @@ public class cau5 {
         sc.nextLine();
         
         //Nhap lop cho sinh vien voi dieu kien bat dau bang ki tu "DCT" hoac "DKP"
-        do {
+        for (;;) {
         System.out.print("Nhap ten lop cho sinh vien: ");
         lop = sc.nextLine();
-        } while(lop.substring(0, 3) == "DKP" ||
-        lop.substring(0, 3) == "DCT" ||
-        lop.substring(0, 3) == "dct" ||
-        lop.substring(0, 3) == "dkp");
+        if(lop.substring(0, 3) != "DKP" ||
+        lop.substring(0, 3) != "DCT" ||
+        lop.substring(0, 3) != "dct" ||
+        lop.substring(0, 3) != "dkp") {
+            
+        }
+        } 
             
     } 
 
@@ -66,16 +69,18 @@ public class cau5 {
         System.out.println("");
         System.out.println("=============================Thong tin nhan vien =======================================");
         System.out.println("");
-
+        
         
         System.out.println("------------------------------------------------------------------------------------------");
-        System.out.printf("| %-10s | %-20s | %20s | %10s | %10s |\n", 
-        "ID", "Full Name", "Diem TB", "Tuoi", "Lop");
+        System.out.printf("| %-10s | %-20s | %20s | %10s | %10s |  %10s  |\n", 
+        "ID", "Full Name", "Diem TB", "Tuoi", "Lop", "Hoc bong");
         System.out.println("------------------------------------------------------------------------------------------");
 
         for(int i = 0; i < sv.length; i++) {
-            System.out.printf("| %-10s | %-20s | %20.1f | %10d | %10s |\n", 
-            sv[i].getID(), sv[i].getName(), sv[i].getMark(), sv[i].getAge(), sv[i].getLop());
+            // String c;
+            // if(sv[i].getHocBong()) ? "Co" : "Khong"
+            System.out.printf("| %-10s | %-20s | %20.1f | %10d | %10s | %10s  |\n", 
+            sv[i].getID(), sv[i].getName(), sv[i].getMark(), sv[i].getAge(), sv[i].getLop(),(sv[i].getHocBong()) ? "Co" : "Khong" );
         }
         
         
@@ -103,6 +108,14 @@ public class cau5 {
 
     public String getLop () {
         return lop;
+    }
+
+    public boolean getHocBong () {
+        if(mark >= 8 && mark <= 10) {
+            return true;
+        }
+
+        return false;
     }
 
     public static void main(String[] args) {
