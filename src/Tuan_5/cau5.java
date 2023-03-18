@@ -58,7 +58,7 @@ public class cau5 {
         lop.substring(0, 3) != "DCT" ||
         lop.substring(0, 3) != "dct" ||
         lop.substring(0, 3) != "dkp") {
-            
+            break;
         }
         } 
             
@@ -67,7 +67,7 @@ public class cau5 {
     public static void showData(cau5 sv[]) {
 
         System.out.println("");
-        System.out.println("=============================Thong tin nhan vien =======================================");
+        System.out.println("=============================Thong tin sinh vien =======================================");
         System.out.println("");
         
         
