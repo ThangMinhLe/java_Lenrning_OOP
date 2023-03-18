@@ -51,7 +51,7 @@ public class cau5 {
         sc.nextLine();
         
         //Nhap lop cho sinh vien voi dieu kien bat dau bang ki tu "DCT" hoac "DKP"
-        for (;;) {
+       for (;;) {
         System.out.print("Nhap ten lop cho sinh vien: ");
         lop = sc.nextLine();
         if(lop.substring(0, 3) != "DKP" ||
@@ -67,7 +67,7 @@ public class cau5 {
     public static void showData(cau5 sv[]) {
 
         System.out.println("");
-        System.out.println("=============================Thong tin sinh vien =======================================");
+        System.out.println("=============================Thong tin sinh vien. =======================================");
         System.out.println("");
         
         
