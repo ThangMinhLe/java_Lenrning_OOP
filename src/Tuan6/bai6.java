@@ -10,6 +10,7 @@ public class bai6 {
     private double mark;
     private int age;
     private String lop;
+    private static int n;
 
 
     public bai6 () {
@@ -180,24 +181,27 @@ public class bai6 {
 
     public static void addElenment (bai6 sv[]) {
         Scanner sc = new Scanner(System.in);
+        bai6 svNew[] = new bai6[sv.length+1];
+        svNew = Arrays.copyOf(sv,sv.length + 1);
         System.out.print("Nhap Vi Tri Ban Muon Them: ");
         int k = sc.nextInt();
-        for (int i =sv.length + 1; i >= k; i-- ) {
-                sv[i] = sv[i-1];
+        
+        for (int i = sv.length-1; i >= k; i-- ) {
+            sv[i] = sv[i-1];
         }
 
         System.out.print("Nhap MSSV: ");
-         sv[k].maSV = sc.nextLong();
+        sv[k-1].maSV = sc.nextLong();
         sc.nextLine();
 
         System.out.print("Nhap Ten: ");
-        sv[k].tenSV = sc.nextLine();
+        sv[k-1].tenSV = sc.nextLine();
 
         //Nhap diem voi dieu kien (0 <= DiemTB <= 10) 
        for (;;) {
            System.out.print("Nhap diem trung binh: ");
-           sv[k].mark = sc.nextDouble();
-           if (sv[k].mark <= 10 && sv[k].mark >= 0) {
+           sv[k-1].mark = sc.nextDouble();
+           if (sv[k-1].mark <= 10 && sv[k-1].mark >= 0) {
                break;
            }
        }
@@ -205,30 +209,30 @@ public class bai6 {
        // Nhap tuoi cho sinh vien voi dieu kien: tuoi >= 18
         do {
        System.out.print("Nhap tuoi cho sinh vien: ");
-       sv[k].age = sc.nextInt();
-       } while(sv[k].age < 18);
+       sv[k-1].age = sc.nextInt();
+       } while(sv[k-1].age < 18);
        sc.nextLine();
        
        //Nhap lop cho sinh vien voi dieu kien bat dau bang ki tu "DCT" hoac "DKP"
       for (;;) {
        System.out.print("Nhap ten lop cho sinh vien: ");
-       sv[k].lop = sc.nextLine();
-       if(sv[k].lop.substring(0, 3) != "DKP" ||
-       sv[k].lop.substring(0, 3) != "DCT" ||
-       sv[k].lop.substring(0, 3) != "dct" ||
-       sv[k].lop.substring(0, 3) != "dkp") {
+       sv[k-1].lop = sc.nextLine();
+       if(sv[k-1].lop.substring(0, 3) != "DKP" ||
+       sv[k-1].lop.substring(0, 3) != "DCT" ||
+       sv[k-1].lop.substring(0, 3) != "dct" ||
+       sv[k-1].lop.substring(0, 3) != "dkp") {
            break;
        }
        } 
 
-
+        
     }
 
     public static void main(String[] args) {
 
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Nhap so sinh vien: ");
-                int n =sc.nextInt();
+                n =sc.nextInt();
                 bai6 sv[] = new bai6[n];
                 System.out.println("");
                 //Nhap Thong Tin Cho Sinh Vien.
@@ -241,10 +245,12 @@ public class bai6 {
                 }
 
                 //Show Thong Tin Sinh Vien.
-                // showData(sv);
                 // getInfByID(sv);
                 // InfHocBong(sv);
+                n = n +1;
+                System.out.println(sv.length);
                 addElenment(sv);
+                showData(sv);
                 
 
     }
