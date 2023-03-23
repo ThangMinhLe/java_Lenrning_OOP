@@ -1,0 +1,20 @@
+Bai 6: note tao menu
+
+1.Class
+2. Abstract Class(Lớp Trừu Tượng).
+3. Interface (Mô hình giúp xây dụng liên kết giữa các lớp.) 
+        Trong Diagram, Interface có kí hiệu Diagram. 
+4. Phạm Vi Truy cập: 
+        Dấu + : Public
+        Dấu - : Private
+        Dấu # : Default
+        Dấu ~ : Pagkage
+5. Quan hệ(Relationship):
+        Inheritance: Cha - Con 
+        Realization: Thể hiện bằng mũi tên nét đứt hướng về cha con. 
+        Dependency.
+        Aggregation Class2 is part of Class1.
+        
+        
+
+
