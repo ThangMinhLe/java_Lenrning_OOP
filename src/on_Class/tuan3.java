@@ -20,16 +20,16 @@ public class tuan3 {
         // int m = arr.length;
         // nhap(arr, n);
        
-    // System.out.println("Nhap value");
-    //   int value = sc.nextInt();
-    //     System.out.println("Nhap index");
-    //   int index =sc.nextInt() ;
+    System.out.println("Nhap value");
+      int value = sc.nextInt();
+        System.out.println("Nhap index");
+      int index =sc.nextInt() ;
     
 
     // deleteFinally (arr);
-    delete(arr);
+    // delete(arr);
     // Finally (arr);
-    // add(arr, value, index);
+    add(arr, value, index);
     // findX(arr);
     // maxFind(arr);
 }
