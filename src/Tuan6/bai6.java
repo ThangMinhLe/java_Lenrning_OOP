@@ -2,6 +2,10 @@ package Tuan6;
 
 //Import Library
 import java.util.Scanner;
+
+import javafx.scene.control.Menu;
+import javafx.scene.media.Media;
+
 import java.util.Arrays;
 import java.lang.NullPointerException;
 
@@ -42,7 +46,7 @@ public class bai6 {
         for (;;) {
             System.out.print("Nhap diem trung binh: ");
             mark = sc.nextDouble();
-            if (mark <= 10 && mark >= 0) {
+            if ( mark >= 0 && mark <= 10 ) {
                 break;
             }
         }
@@ -58,10 +62,9 @@ public class bai6 {
        for (;;) {
         System.out.print("Nhap ten lop cho sinh vien: ");
         lop = sc.nextLine();
-        if(lop.substring(0, 3) != "DKP" ||
-        lop.substring(0, 3) != "DCT" ||
-        lop.substring(0, 3) != "dct" ||
-        lop.substring(0, 3) != "dkp") {
+        if(lop.substring(0, 3).toUpperCase() != "DKP" ||
+        lop.substring(0, 3).toUpperCase() != "DCT" )
+        {
             break;
         }
         } 
@@ -185,6 +188,14 @@ public class bai6 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap Vi Tri Ban Muon Them: ");
         int k = sc.nextInt();
+
+        if(k < 1 ) {
+            k = 1;
+        }
+        else if (k > sv.length) {
+            k = sv.length;
+        }
+
         for (int i = sv.length-1; i > k-1; i-- ) { 
             sv[i] = sv[i-1];
         }
@@ -203,7 +214,7 @@ public class bai6 {
        for (;;) {
            System.out.print("Nhap diem trung binh: ");
            newSV.mark = sc.nextDouble();
-           if (newSV.mark <= 10 && newSV.mark >= 0) {
+           if ( newSV.mark >= 0 && newSV.mark <= 10 ) {
                break;
            }
        }
@@ -217,22 +228,98 @@ public class bai6 {
        
        //Nhap lop cho sinh vien voi dieu kien bat dau bang ki tu "DCT" hoac "DKP"
       for (;;) {
-       System.out.print("Nhap ten lop cho sinh vien: ");
-       newSV.lop = sc.nextLine();
-       if(newSV.lop.substring(0, 3) != "DKP" ||
-       newSV.lop.substring(0, 3) != "DCT" ||
-       newSV.lop.substring(0, 3) != "dct" ||
-       newSV.lop.substring(0, 3) != "dkp") {
-           break;
-       }
-       } 
+        System.out.print("Nhap ten lop cho sinh vien: ");
+        newSV.lop = sc.nextLine();
+        
+                if(newSV.lop.substring(0, 3).toUpperCase() != "DKP" ||
+                    newSV.lop.substring(0, 3).toUpperCase() != "DCT" )
+                {
+                break;
+                }
+        } 
+
+            
 
        //Gắn đối tượng newSV vào Đôis tượng sv[k-1] của mảng đối tượng.
        sv[k-1] = newSV;
         
     }
 //
-    
+                public static void deleteElenment (bai6 sv[]) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.print("Nhap Vi Tri Ban Muon Xoa: ");
+                    int k = sc.nextInt();
+
+                    if(k < 1 ) {
+                        k = 1;
+                    }
+                    else if (k > sv.length) {
+                        k = sv.length;
+                    }
+
+                    for (int i = k; i < sv.length; i++ ) { 
+                        sv[i] = sv[i+1];
+                    }}
+
+                    public static void menu (bai6 sv[]) {
+                        Scanner sc = new Scanner(System.in);
+                        int option;
+
+                do {
+                    
+                        do {
+                            System.out.println("================================================");
+                            System.out.printf("| %-48s |\n","1: ADD. ");
+                            System.out.printf("| %-48s |\n","2: DELETE. ");
+                            System.out.printf("| %-48s |\n","3: FIND BY ID. ");
+                            System.out.printf("| %-48s |\n","4: SHOW THON TIN CAC BAN DUOC HOC BONG. ");
+                            System.out.printf("| %-48s |\n","5: SHOW DATA. ");
+                            System.out.println("================================================");
+                            System.out.print("Moi ban nhap lua chon: ");
+                            option = sc.nextInt(); 
+                            if(option < 0 || option > 5) {
+                                System.out.println(" Lua chon cua ban khong hop le! ");
+                            }
+                        }while (option < 0 || option > 5);
+
+                        switch (option) {
+                            case 1 :
+                            {
+                                //Stat at to add element
+                                sv = Arrays.copyOf(sv, sv.length + 1); 
+                                addElenment(sv);
+                                // Break to stop Function Add Element.
+                                break;
+                            }
+                            case 2 :  
+                            {
+                                //xoa elment
+                                deleteElenment(sv);
+                                sv = Arrays.copyOf(sv, sv.length - 1);
+                                break;
+                            }
+                            case 3 : 
+                            {
+                                getInfByID(sv);
+                                break;
+                            }
+                            case 4 : 
+                            {
+                                InfHocBong(sv);
+                                break;
+                            }
+                            case 5 : 
+                            {
+                                showData(sv);
+                                break;
+                            }
+                        }
+
+                }while (option != 0 );
+
+
+                    }
+
     public static void main(String[] args) {
 
                 Scanner sc = new Scanner(System.in);
@@ -248,37 +335,8 @@ public class bai6 {
                     System.out.println("");
 
                 }
-
-                //Show Thong Tin Sinh Vien.
-                // getInfByID(sv);
-                // InfHocBong(sv);
+                menu(sv);
+                }
                 
-
-                
-                //Stat at to add element
-                n += 1;
-                bai6 arr[] = new bai6[1];
-                arr = Arrays.copyOf(sv, sv.length + 1); 
-                addElenment(arr);
-                showData(arr);
-                // Break to stop Function Add Element.
-                
-                
-                // showData(sv);
-
-                // Tính năng: 
-                // 1. ADD 
-                // 2. Delete
-                // 3. Find
-                // 4. Check Học Bổng
-                // 5. Show Thông tin
-                // 0. Exit
-
-                
-
-    }
-
-  
-
-
-}
+            
+            }
