@@ -184,7 +184,7 @@ public class bai6 {
 
     }
 
-    public static void addElenment (bai6 sv[]) {
+                 public static void addElenment (bai6 sv[]) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap Vi Tri Ban Muon Them: ");
         int k = sc.nextInt();
@@ -244,7 +244,25 @@ public class bai6 {
        sv[k-1] = newSV;
         
     }
-//
+               
+                // Ham xap xep.
+                public static void xapxep(bai6 sv[]) {
+        int n = sv.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (sv[j].mark < sv[minIndex].mark) {
+                    minIndex = j;
+                }
+            }
+            bai6 temp = new bai6();
+            temp = sv[i];
+            sv[i] = sv[minIndex];
+            sv[minIndex] = temp;
+        }
+    }
+                
+                //Ham Delete.
                 public static void deleteElenment (bai6 sv[]) {
                     Scanner sc = new Scanner(System.in);
                     System.out.print("Nhap Vi Tri Ban Muon Xoa: ");
@@ -261,6 +279,19 @@ public class bai6 {
                         sv[i] = sv[i+1];
                     }}
 
+                    public static char getCharAfterLastWhiteSpace(String str) {
+                        str = str.trim();
+                        int lastSpaceIndex = str.lastIndexOf(' ');
+                        if (lastSpaceIndex != -1 && lastSpaceIndex < str.length() - 1 && lastSpaceIndex < str.length() - 1) {
+                            return str.charAt(lastSpaceIndex + 1);
+                        } else {
+                            // Nếu không tìm thấy khoản trắng cuối cùng hoặc kí tự đằng sau khoản trắng cuối cùng là kí tự cuối cùng của chuỗi
+                            // Trả về kí tự rỗng
+                            return '\0';
+                        }
+                    }
+                    
+                    //Ham Menu.
                     public static void menu (bai6 sv[]) {
                         Scanner sc = new Scanner(System.in);
                         int option;
@@ -273,14 +304,17 @@ public class bai6 {
                             System.out.printf("| %-48s |\n","2: DELETE. ");
                             System.out.printf("| %-48s |\n","3: FIND BY ID. ");
                             System.out.printf("| %-48s |\n","4: SHOW THON TIN CAC BAN DUOC HOC BONG. ");
-                            System.out.printf("| %-48s |\n","5: SHOW DATA. ");
+                            System.out.printf("| %-48s |\n","5: XAP XEP. ");
+                            System.out.printf("| %-48s |\n","6: DEM SO SINH VIEN BAT DAU BANG CHU 'A'. ");
+                            System.out.printf("| %-48s |\n","7: SHOW DATA. ");
+                            System.out.printf("| %-48s |\n","0: EXIT. ");
                             System.out.println("================================================");
                             System.out.print("Moi ban nhap lua chon: ");
                             option = sc.nextInt(); 
-                            if(option < 0 || option > 5) {
+                            if(option < 0 || option > 7) {
                                 System.out.println(" Lua chon cua ban khong hop le! ");
                             }
-                        }while (option < 0 || option > 5);
+                        }while (option < 0 || option > 7);
 
                         switch (option) {
                             case 1 :
@@ -300,20 +334,45 @@ public class bai6 {
                             }
                             case 3 : 
                             {
+                                //Lay Thing tin sinh vien bat dau bang MaSV
                                 getInfByID(sv);
                                 break;
                             }
                             case 4 : 
                             {
+                                // Hoc Bong
                                 InfHocBong(sv);
                                 break;
                             }
-                            case 5 : 
+                           
+                            case 5: {
+                                // Hoc Bong
+                                xapxep(sv);
+                                break;
+
+                            }
+                            case 6: {
+                                // So sinh vien bat dau bang chu A
+                                int Count = 0;
+                                for(int i = 0; i < sv.length; i++) {
+                                if (getCharAfterLastWhiteSpace(sv[i].tenSV) == 'A') {
+                                    Count += 1;
+                                }
+                                }
+                                System.out.println("Co " + Count + "ban co ten bat dau bang chu A");
+
+                                break;
+                            }
+
+                            case 7 : 
                             {
+                                // Show Data
                                 showData(sv);
                                 break;
                             }
                         }
+                    
+                        
 
                 }while (option != 0 );
 
