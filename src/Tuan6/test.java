@@ -1,6 +1,6 @@
 package Tuan6;
 
-
+import java.util.*;
 
 
 public class test {
@@ -16,9 +16,33 @@ public class test {
         }
     }
     
+    public static boolean isInteger(String inputString) {
+        try {
+            Integer.parseInt(inputString);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static boolean isString(String inputString) {
+        for (int i = 0; i < inputString.length(); i++) {
+            if (!Character.isLetter(inputString.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // int i ;
+        // i = sc.nextInt();
         
-        System.out.println(getCharAfterLastWhiteSpace("        Hello Man!           "));
+        String st=sc.nextLine();
+        sc.nextLine();
+       int a=Integer.parseInt(st);
+System.out.println(a);
 
     }
 

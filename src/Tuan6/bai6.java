@@ -184,7 +184,7 @@ public class bai6 {
 
     }
 
-                 public static void addElenment (bai6 sv[]) {
+    public static void addElenment (bai6 sv[]) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap Vi Tri Ban Muon Them: ");
         int k = sc.nextInt();
@@ -245,8 +245,8 @@ public class bai6 {
         
     }
                
-                // Ham xap xep.
-                public static void xapxep(bai6 sv[]) {
+            // Ham xap xep.
+    public static void xapxep(bai6 sv[]) {
         int n = sv.length;
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
@@ -262,8 +262,8 @@ public class bai6 {
         }
     }
                 
-                //Ham Delete.
-                public static void deleteElenment (bai6 sv[]) {
+            //Ham Delete.
+    public static void deleteElenment (bai6 sv[]) {
                     Scanner sc = new Scanner(System.in);
                     System.out.print("Nhap Vi Tri Ban Muon Xoa: ");
                     int k = sc.nextInt();
@@ -279,7 +279,7 @@ public class bai6 {
                         sv[i] = sv[i+1];
                     }}
 
-                    public static char getCharAfterLastWhiteSpace(String str) {
+    public static char getCharAfterLastWhiteSpace(String str) {
                         str = str.trim();
                         int lastSpaceIndex = str.lastIndexOf(' ');
                         if (lastSpaceIndex != -1 && lastSpaceIndex < str.length() - 1 && lastSpaceIndex < str.length() - 1) {
@@ -290,9 +290,35 @@ public class bai6 {
                             return '\0';
                         }
                     }
-                    
-                    //Ham Menu.
-                    public static void menu (bai6 sv[]) {
+        
+    public static void demA (bai6 sv[]) {
+        int Count = 0;
+        for(int i = 0; i < sv.length; i++) {
+            
+            
+
+            if (sv[i].tenSV.contains(" ")) {
+                char str = getCharAfterLastWhiteSpace(sv[i].tenSV.toUpperCase());
+                if (str == 'A') {
+                    Count += 1;
+                }
+            }
+            else {
+                char c = sv[i].tenSV.charAt(0);
+                c = Character.toUpperCase(c);
+                if(c == 'A'){
+                    Count += 1; 
+                }
+            }
+
+                }      
+
+        System.out.println("Co " + Count + " ban co ten bat dau bang chu A");
+
+    }
+
+            //Ham Menu.
+    public static void menu (bai6 sv[]) {
                         Scanner sc = new Scanner(System.in);
                         int option;
 
@@ -353,14 +379,7 @@ public class bai6 {
                             }
                             case 6: {
                                 // So sinh vien bat dau bang chu A
-                                int Count = 0;
-                                for(int i = 0; i < sv.length; i++) {
-                                if (getCharAfterLastWhiteSpace(sv[i].tenSV) == 'A') {
-                                    Count += 1;
-                                }
-                                }
-                                System.out.println("Co " + Count + "ban co ten bat dau bang chu A");
-
+                               demA(sv);
                                 break;
                             }
 
@@ -394,6 +413,8 @@ public class bai6 {
                     System.out.println("");
 
                 }
+
+                //Menu option!
                 menu(sv);
                 }
                 
