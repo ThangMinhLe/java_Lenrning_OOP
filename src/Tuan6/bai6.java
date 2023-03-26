@@ -268,14 +268,14 @@ public class bai6 {
                     System.out.print("Nhap Vi Tri Ban Muon Xoa: ");
                     int k = sc.nextInt();
 
-                    if(k < 1 ) {
-                        k = 1;
+                    if(k < 0 ) {
+                        k = 0;
                     }
                     else if (k > sv.length) {
-                        k = sv.length;
+                        k = sv.length - 1;
                     }
 
-                    for (int i = k; i < sv.length; i++ ) { 
+                    for (int i = k; i < sv.length - 2; i++ ) { 
                         sv[i] = sv[i+1];
                     }}
 
@@ -352,11 +352,19 @@ public class bai6 {
                                 break;
                             }
                             case 2 :  
-                            {
+                            {   
+                                if(sv.length > 0)   
+                                {
                                 //xoa elment
-                                deleteElenment(sv);
-                                sv = Arrays.copyOf(sv, sv.length - 1);
-                                break;
+                                    deleteElenment(sv);
+                                    sv = Arrays.copyOf(sv, sv.length - 1);
+                                    break;
+                                }
+                                else {
+                                    System.out.println("Mang rong khong the xoa!");
+                                    break;
+
+                                }
                             }
                             case 3 : 
                             {
