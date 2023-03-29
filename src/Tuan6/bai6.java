@@ -317,6 +317,100 @@ public class bai6 {
 
     }
 
+    public static void updateData(bai6 sv[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhap vi tri sinh vien can Update: ");
+        int i = sc.nextInt();
+
+        if (i > sv.length) {
+            i = sv.length - 1; 
+        }else if (i < 0) {
+            i = 0;
+        }
+
+           int k;
+            
+            do {
+                    do{
+                        System.out.println("==================Thong tin sinh vien can Update Thong Tin: ====================================");
+                System.out.printf("| %-10s | %-20s | %20s | %10s | %10s |\n", "ID", "Full Name", "Diem TB", "Tuoi", "Lop");
+                System.out.println("-----------------------------------------------------------------------------------------");    
+                System.out.printf("| %-10s | %-20s | %20.1f | %10d | %10s | %10s  |\n", 
+                sv[i].getID(), sv[i].getName(), sv[i].getMark(), sv[i].getAge(), sv[i].getLop(),(sv[i].getHocBong()) ? "Co" : "Khong" );
+            System.out.println("----------------------------------------------------------------------------------------------------");
+
+                        System.out.println("1: Update ID.");
+                        System.out.println("2: Update ten.");
+                        System.out.println("3: Update Diem.");
+                        System.out.println("4: Update Tuoi.");
+                        System.out.println("5: Update Lop.");
+                        System.out.println("0: Exit!");
+                        System.out.print("Moi ban chon lua chon can update thong tin: ");
+                        k = sc.nextInt();
+
+                        if( k < 0 || k > 6) {
+                            System.out.println("Lua chon cua ban khong hop le.");
+                        }
+                    }while( k < 0 || k > 6);
+
+                    switch(k) {
+                        case 1: {
+                            System.out.print("Nhap lai ID cua sinh vien ban muon cap nhat: ");
+                            sv[i].maSV = sc.nextLong();
+                            break;
+                        }
+
+                        case 2: {
+                            System.out.print("Nhap lai ten ban muon cap nhat: ");
+                            sc.nextLine();
+                            sv[i].tenSV = sc.nextLine();
+                            break;
+                        }
+                        
+                        case 3: {
+                            for (;;) {
+                            System.out.print("Nhap lai diem cua sinh vien ban muon cap nhat: ");
+                                sv[i].mark = sc.nextDouble();
+                                if ( sv[i].mark >= 0 && sv[i].mark <= 10 ) {
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        
+                        case 4: {
+
+                            do {
+                            System.out.print("Nhap lai tuoi cua sinh vien ban muon cap nhat: ");
+                            sv[i].age = sc.nextInt();
+                            }while (sv[i].age < 18);
+                            
+                            break;
+                        }
+                        
+                        case 5: {
+
+                            for (;;) {
+                                System.out.print("Nhap lai lop cua sinh vien ban muon cap nhat: ");
+                                sc.nextLine();
+                                sv[i].lop = sc.nextLine();
+                                
+                                        if(sv[i].lop.substring(0, 3).toUpperCase() != "DKP" ||
+                                            sv[i].lop.substring(0, 3).toUpperCase() != "DCT" )
+                                        {
+                                        break;
+                                        }
+                                }
+                            
+                        }
+                    }
+
+            }while( k != 0);
+    
+                System.out.println("Da Update thanh cong thong tin cho sinh vien ma so " + sv[i].maSV);
+                System.out.println("");
+            }
+
             //Ham Menu.
     public static void menu (bai6 sv[]) {
                         Scanner sc = new Scanner(System.in);
@@ -332,15 +426,16 @@ public class bai6 {
                             System.out.printf("| %-48s |\n","4: SHOW THON TIN CAC BAN DUOC HOC BONG. ");
                             System.out.printf("| %-48s |\n","5: XAP XEP. ");
                             System.out.printf("| %-48s |\n","6: DEM SO SINH VIEN BAT DAU BANG CHU 'A'. ");
-                            System.out.printf("| %-48s |\n","7: SHOW DATA. ");
+                            System.out.printf("| %-48s |\n","7: Update. ");
+                            System.out.printf("| %-48s |\n","8: SHOW DATA. ");
                             System.out.printf("| %-48s |\n","0: EXIT. ");
                             System.out.println("================================================");
                             System.out.print("Moi ban nhap lua chon: ");
                             option = sc.nextInt(); 
-                            if(option < 0 || option > 7) {
+                            if(option < 0 || option > 8) {
                                 System.out.println(" Lua chon cua ban khong hop le! ");
                             }
-                        }while (option < 0 || option > 7);
+                        }while (option < 0 || option > 8);
 
                         switch (option) {
                             case 1 :
@@ -391,7 +486,14 @@ public class bai6 {
                                 break;
                             }
 
-                            case 7 : 
+                            case 7: {
+                                updateData(sv);
+                                break;
+                            }
+
+
+
+                            case 8 : 
                             {
                                 // Show Data
                                 showData(sv);
