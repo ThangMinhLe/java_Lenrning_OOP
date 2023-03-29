@@ -52,7 +52,7 @@ public class bai6 {
         }
 
         // Nhap tuoi cho sinh vien voi dieu kien: tuoi >= 18
-         do {
+        do {
         System.out.print("Nhap tuoi cho sinh vien: ");
         age = sc.nextInt();
         } while(age < 18);
@@ -322,7 +322,7 @@ public class bai6 {
         System.out.print("Nhap vi tri sinh vien can Update: ");
         int i = sc.nextInt();
 
-        if (i > sv.length) {
+        if (i >= sv.length) {
             i = sv.length - 1; 
         }else if (i < 0) {
             i = 0;
@@ -348,10 +348,10 @@ public class bai6 {
                         System.out.print("Moi ban chon lua chon can update thong tin: ");
                         k = sc.nextInt();
 
-                        if( k < 0 || k > 6) {
+                        if( k < 0 || k > 5) {
                             System.out.println("Lua chon cua ban khong hop le.");
                         }
-                    }while( k < 0 || k > 6);
+                    }while( k < 0 || k > 5);
 
                     switch(k) {
                         case 1: {
