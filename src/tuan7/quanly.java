@@ -4,7 +4,7 @@ import java.util.*;
 
 import javax.swing.text.AbstractDocument.BranchElement;
 
-public class quanly extends nhanvien {
+public class quanly {
     static Scanner sc = new Scanner(System.in);
 
     // Ham add Element.
@@ -67,7 +67,7 @@ public class quanly extends nhanvien {
                     }
 
                     case 3: {
-                        find(nv);
+                            
                             break;
                     }
 

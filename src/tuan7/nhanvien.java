@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class nhanvien extends canbo {
     public String congViec;
+    nhanvien ds[] = new nhanvien[0];
     static Scanner sc = new Scanner(System.in);
    
     @Override
@@ -22,19 +23,30 @@ public class nhanvien extends canbo {
 
     }
     // Ham Find by Name. 
-    public static void find (nhanvien nv[]) {
-        System.out.print("Moi nhap ten ban muon tim kiem: ");
-        String findName = sc.nextLine();
-        for(int i =0; i < nv.length; i++) {
-            if(nv[i].name.equalsIgnoreCase(findName)) {
-                System.out.println("Co " + findName + " trong danh sach");
-                break;
+    // public void find (nhanvien nv[]) {
+    //     System.out.print("Moi nhap ten ban muon tim kiem: ");
+    //     String findName = sc.nextLine();
+    //     for(int i =0; i < nv.length; i++) {
+    //         if(nv[i].name.equalsIgnoreCase(findName)) {
+    //             System.out.println("Co " + findName + " trong danh sach");
+    //             break;
+    //         }
+    //     }
+    //     System.out.println("Khong co " + findName + " trong danh sach");
+       
+       
+    // }
+
+    public boolean timKiem(String st) {
+        for (nhanvien x : ds) {
+            if (st.equals(x.name)) {
+                return true;
             }
         }
-        System.out.println("Khong co " + findName + " trong danh sach");
-       
-       
+        return false;
     }
+
+
 
     public static void main(String[] args) {
         System.out.print("Nhap mang nhan vien: ");
