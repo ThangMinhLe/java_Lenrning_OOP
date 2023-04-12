@@ -73,4 +73,8 @@ public class sinhVien extends person {
         return super.showData() + String.format("%10s%10s%10d%10f", lop, khoa, diem, soTinChiDaDat );
     }
 
+    public static void main(String[] args) {
+        
+    }
+
 }
